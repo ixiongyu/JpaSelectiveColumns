@@ -1,12 +1,16 @@
 <idea-plugin>
     <id>org.ixiongyu.JpaSelectiveColumns</id>
-    <name>Plugin display name here</name>
-    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+    <name>JpaSelectiveColumns</name>
+    <vendor email="ixiongyu@gmail.com" url="http://www.ixiongyu.com">成都天府市民云服务有限公司</vendor>
 
-    <description><![CDATA[
-    Enter short description for your plugin here.<br>
-    <em>most HTML tags may be used</em>
-    ]]></description>
+    <description>
+        <![CDATA[
+
+    ]]>
+        <![CDATA[
+        Illustrates various basic Editor APIs. Requires at least project to be open, and a file open in the editor to see the menu items this plugin adds to the editor popup menu.<br>Mouse over each of this plugin's menu items to see hints in the lower left corner of the IDE.
+      ]]>
+    </description>
 
     <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
@@ -18,5 +22,34 @@
 
     <actions>
         <!-- Add your actions here -->
+        <action id="com.xiongyu.hello" class="com.xiongyu.HelloAction" text="hello" description="hello一下">
+            <add-to-group group-id="GenerateGroup" anchor="last"/>
+        </action>
+        <action id="JpaGenerateAction" class="com.xiongyu.GenerateAction" text="GenerateAction" description="创建自定义返回值">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+        <action id="EditorIllustrationAction"
+                class="com.xiongyu.EditorIllustrationAction"
+                text="Editor Replace Text"
+                description="Replaces selected text with 'Replacement'."
+                icon="SdkIcons.Sdk_default_icon">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+        <action id="EditorHandlerIllustration"
+                class="com.xiongyu.EditorHandlerIllustration"
+                text="Editor Add Caret"
+                description="Adds a second caret below the existing one."
+                icon="SdkIcons.Sdk_default_icon">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+        <!-- Place this entry first in the popup menu; it's always enabled if a project and editor are open -->
+        <action id="LogicalPositionIllustration"
+                class="com.xiongyu.EditorAreaIllustration"
+                text="Caret Position"
+                description="Reports information about the caret position."
+                icon="SdkIcons.Sdk_default_icon">
+            <keyboard-shortcut keymap="$default" first-keystroke="control alt G"/>
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
     </actions>
 </idea-plugin>
