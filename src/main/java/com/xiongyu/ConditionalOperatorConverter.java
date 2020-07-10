@@ -12,6 +12,7 @@ import org.jetbrains.annotations.*;
 
 /**
  * Implements an intention action to replace a ternary statement with if-then-else
+ * @author xiongyu
  */
 @NonNls
 public class ConditionalOperatorConverter extends PsiElementBaseIntentionAction implements IntentionAction {

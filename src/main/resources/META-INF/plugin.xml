@@ -22,5 +22,9 @@
 
     <actions>
         <!-- Add your actions here -->
+        <action id="com.xiongyu.generatejpainterface" class="com.xiongyu.GenerateJpaInterface" text="生成Jpa自定义返回值"
+                description="生成Jpa自定义返回值">
+            <add-to-group group-id="GenerateGroup" anchor="first"/>
+        </action>
     </actions>
 </idea-plugin>
