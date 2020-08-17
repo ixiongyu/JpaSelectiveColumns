@@ -1,5 +1,6 @@
 package com.xiongyu.database;
 
+import com.xiongyu.generator.config.Vendor;
 import lombok.Getter;
 
 /**

@@ -1,12 +1,13 @@
 package com.xiongyu.database;
 
-import com.ifengxue.plugin.Holder;
-import com.ifengxue.plugin.entity.Column;
-import com.ifengxue.plugin.entity.ColumnSchema;
-import com.ifengxue.plugin.entity.TableSchema;
-import com.ifengxue.plugin.util.ColumnUtil;
-import fastjdbc.Sql;
-import fastjdbc.SqlBuilder;
+
+import com.xiongyu.Holder;
+import com.xiongyu.entity.Column;
+import com.xiongyu.entity.ColumnSchema;
+import com.xiongyu.entity.TableSchema;
+import com.xiongyu.jdbc.Sql;
+import com.xiongyu.jdbc.SqlBuilder;
+import com.xiongyu.util.ColumnUtil;
 import org.apache.commons.lang3.StringUtils;
 
 import java.sql.SQLException;
@@ -49,7 +50,7 @@ public class MysqlDriverAdapter extends AbstractDriverAdapter {
 
   @Override
   public Column parseToColumn(ColumnSchema columnSchema, String removeFieldPrefix, boolean useWrapper,
-      boolean useJava8DataType) {
+                              boolean useJava8DataType) {
     Column column = new Column();
     column.setColumnName(columnSchema.getColumnName());
     column.setSort(columnSchema.getOrdinalPosition());

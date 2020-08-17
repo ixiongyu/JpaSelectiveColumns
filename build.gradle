@@ -1,11 +1,29 @@
+buildscript {
+    repositories {
+        maven {
+            url 'https://plugins.gradle.org/m2/'
+        }
+    }
+    dependencies {
+        classpath 'io.freefair.gradle:lombok-plugin:5.0.1'
+    }
+}
 plugins {
     id 'groovy'
     id 'java'
     id 'org.jetbrains.intellij' version '0.4.21'
+    id 'io.freefair.lombok' version '5.1.1'
+
 }
+
 
 group 'org.xiongyu'
 version '1.0-SNAPSHOT'
+
+
+apply plugin: 'java'
+apply plugin: 'org.jetbrains.intellij'
+apply plugin: 'io.freefair.lombok'
 
 repositories {
     mavenCentral()
@@ -13,12 +31,18 @@ repositories {
 
 dependencies {
     implementation 'org.codehaus.groovy:groovy-all:2.3.11'
-    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.20'
-    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.10'
+    implementation 'mysql:mysql-connector-java:8.0.20'
+    implementation 'org.apache.commons:commons-lang3:3.10'
+    implementation 'org.slf4j:slf4j-api:1.7.30'
+    implementation 'org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.2.Final'
+    implementation 'com.google.code.findbugs:jsr305:3.0.2'
+    // https://mvnrepository.com/artifact/com.intellij/openapi
+
     compileOnly 'org.projectlombok:lombok:1.18.12'
-    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+//    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+//    annotationProcessor 'org.projectlombok:lombok'
     testImplementation group: 'junit', name: 'junit', version: '4.12'
-    annotationProcessor 'org.projectlombok:lombok'
+    compileOnly fileTree('libs')
 
 
 }
@@ -27,6 +51,8 @@ dependencies {
 intellij {
     version '2020.1.2'
     plugins = ['java']
+    type 'IU'
+    updateSinceUntilBuild false
 }
 patchPluginXml {
     changeNotes """

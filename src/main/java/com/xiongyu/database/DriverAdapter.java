@@ -2,6 +2,10 @@ package com.xiongyu.database;
 
 
 
+import com.xiongyu.entity.Column;
+import com.xiongyu.entity.ColumnSchema;
+import com.xiongyu.entity.TableSchema;
+
 import java.sql.SQLException;
 import java.util.List;
 
@@ -29,7 +33,7 @@ public interface DriverAdapter {
    * 解析为{@link Column}
    */
   Column parseToColumn(ColumnSchema columnSchema, String removeFieldPrefix, boolean useWrapper,
-      boolean useJava8DataType);
+                       boolean useJava8DataType);
 
   /**
    * 转换为 connection url

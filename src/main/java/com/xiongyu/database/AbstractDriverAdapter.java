@@ -3,6 +3,9 @@ package com.xiongyu.database;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * @author xiongyu
+ */
 public abstract class AbstractDriverAdapter implements DriverAdapter {
 
   protected static Pattern connectionUrlPattern;

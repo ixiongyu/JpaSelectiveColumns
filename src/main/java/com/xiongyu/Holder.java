@@ -3,6 +3,8 @@ package com.xiongyu;
 import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.project.Project;
+import com.xiongyu.database.DatabaseDrivers;
+import com.xiongyu.jdbc.FastJdbc;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -12,7 +14,7 @@ import java.util.Objects;
  * @version Create at ：2020/7/13 9:49 下午
  */
 
-public class ProjectHolder {
+public class Holder {
 
     private static volatile Project project;
     private static volatile AnActionEvent eventHolder;
@@ -23,7 +25,7 @@ public class ProjectHolder {
     private static volatile boolean selectAllTables = false;
 
     public static synchronized void registerProject(Project project) {
-        ProjectHolder.project = project;
+        Holder.project = project;
     }
 
     public static synchronized Project getProject() {
@@ -56,7 +58,7 @@ public class ProjectHolder {
     }
 
     public static synchronized void registerDatabaseDrivers(DatabaseDrivers databaseDrivers) {
-        ProjectHolder.databaseDrivers = databaseDrivers;
+        Holder.databaseDrivers = databaseDrivers;
     }
 
     public static DatabaseDrivers getDatabaseDrivers() {
@@ -64,14 +66,14 @@ public class ProjectHolder {
     }
 
     public static synchronized void registerFastJdbc(FastJdbc fastJdbc) {
-        if (ProjectHolder.fastJdbc != null) {
+        if (Holder.fastJdbc != null) {
             try {
-                ProjectHolder.fastJdbc.close();
+                Holder.fastJdbc.close();
             } catch (IOException e) {
                 // ignore
             }
         }
-        ProjectHolder.fastJdbc = fastJdbc;
+        Holder.fastJdbc = fastJdbc;
     }
 
     public static synchronized FastJdbc getFastJdbc() {
@@ -79,7 +81,7 @@ public class ProjectHolder {
     }
 
     public static synchronized void setSelectAllTables(boolean selectAllTables) {
-        ProjectHolder.selectAllTables = selectAllTables;
+        Holder.selectAllTables = selectAllTables;
     }
 
     public static synchronized boolean isSelectAllTables() {

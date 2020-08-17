@@ -1,13 +1,10 @@
-package com.xiongyu.handler;
+package com.xiongyu.jdbc.handler;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- * @author xiongyu
- */
 public class SimpleResultSetHandler<T> implements ResultSetHandler {
 
   private final RowHandler<T> rowHandler;
